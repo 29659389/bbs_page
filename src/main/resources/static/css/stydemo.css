@@ -1,0 +1,166 @@
+body{
+				background: #F3F3F3;
+			}
+			.layui-collapse{
+				width: 890px;
+				margin-left: 160px;
+			}
+			.layui-collapse div{
+				background-color: white;
+			}
+			.pan{
+            	/*border: 1px solid black;*/
+            	margin-left: 160px;
+            	width: 1200px;
+            }
+            .pan p{
+              	color: #444;
+              	font-size: 16px;
+                text-decoration: none;
+            }
+			.pan span{
+              	color: darkgrey;
+              	font-size: 12px;  
+            }
+            .pan a{
+              	color: #444;
+              	font-size: 16px;
+                text-decoration: none; 
+            }
+            .panel-body div{
+                display: block;
+                margin-top: 6px;   
+            }
+            .panel-body div dl dt a{
+            	font-size: 15px;
+                color: #444;
+                font-weight: 100;
+            }
+            .panel-body div dl dd em{
+            	color: #888888;
+            	font-size: 13px;
+               font-weight: 100; 
+            }
+            .panel-body div dl a{
+                color: #888888;
+                font-size: 12px;
+                
+            }
+            .panel-body div:hover{
+            	background: #F0F0F0;
+            	border-radius: 3px;                   
+            }
+            .fl_icn_g a img{
+            	margin-left: 6px;
+            	margin-top: 2px;
+            }
+            .btn-info i{
+            	font-size: 28px;
+            	margin-top: 10px;
+            }
+            .fblock{
+            	width: 150px;
+            	height: 65px;
+            	margin-top: -10px;
+            	border-radius: 6px;
+            	margin-left: 100px;
+            	color: #444;
+            	background-color: white;	
+            	/*border: 1px solid black;*/
+            }
+            .fblock div{
+            	margin-top: 5px;
+            	padding-top: 3px;
+            }
+            .all i{
+            	padding-right: 38px;
+            	font-size: 14px;
+            }
+            #midaben_con{
+            	background-color: white;
+            }
+            .midaben_demo{
+            	width: 250px;
+            	height: 140px;
+            	margin-left: 20px;
+            	margin-top: 10px;
+            	/*border: 1px solid black;*/
+            }
+            .midaben_demo div{
+            	width: 124px;
+            	height: 70px;
+            	font-weight: 100;
+            	text-align: center;
+            	line-height: 30px;
+            	/*border: 1px solid black;*/
+            }
+            .midaben_demo div span{
+            	color: sandybrown;
+            	font-size: 18px;
+            }
+            .midaben_pass{
+            	background-color: white;
+            	width: 290px;
+            	height: 340px;
+            	margin-top: 30px;
+            	border: 1px solid #F3F3F3;
+            }
+            .comiis_wz_vlist{
+            	/*border: 1px solid black;*/
+            	width: 240px;
+            	margin-left: 20px;
+            	margin-top: -20px;
+            	white-space: nowrap;
+            	overflow: hidden;
+            }
+            .comiis_wz_vlist ul li{
+            	border-bottom: 1px solid #D2D2D2;
+            }
+            .comiis_wz_vlist ul span{
+            	font-size: 16px;
+            }
+            .comiis_wz_vlist ul li a{
+            	widows: 240;
+            	/*border: 1px solid black;*/
+            	line-height: 32px;
+            	color: #444;
+            	font-weight: 100;
+            }
+            .hot{
+            	color: sandybrown;
+            }
+            .hot2{
+            	color: sandybrown;
+            }
+            #frt{
+            	margin-left: 160px;
+            	margin-top: 25px;
+            	line-height: 15px;
+            	font-weight: 100;
+            	font-size: 12px;
+            	color: #b5b5b5;
+            }
+            #frt a{
+            	padding-left: 4px;
+            	font-weight: 100;
+            	font-size: 12px;
+				color: #b5b5b5;
+            }
+/*导航*/
+#uuul ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#uuul ul li{
+	margin-right: 15px;
+	width: 45px;
+	height: 50px;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+
+}
+#uuul ul li a{
+	text-decoration: none;
+}

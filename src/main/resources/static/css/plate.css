@@ -1,0 +1,222 @@
+body{
+    background: #F3F3F3;
+}
+.a1{
+    margin-left: 1265px;
+    margin-top: 100px;
+}
+.collect{
+    background: white;
+    border: 1px solid #D2D2D2;
+    width: 1205px;
+    height: 100px;
+    margin-left: 160px;
+    margin-top: 10px;
+}
+.div_icon{
+    width: 100px;
+    height: 100px;
+    /*border: 1px solid black;*/
+}
+.div_icon img{
+    width: 80px;
+    height: 80px;
+    margin-top: 4px;
+    margin-left: 18px;
+    border-radius: 300px;
+    border: none;
+}
+.div_title{
+    /*border: 1px solid black;*/
+    margin-left: 115px;
+    margin-top: -90px;
+    width: 500px;
+}
+.div_title2{
+    margin-top: 10px;
+    margin-left: 115px;
+    font-size: 13px;
+}
+h4 a{
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+}
+h4 span{
+    color: #888888;
+    font-size: 13px;
+    font-weight: 100;
+}
+.theme{
+    /*border: 1px solid black;*/
+    width: 890px;
+    margin-left: 160px;
+    margin-top: 20px;
+    height: auto;
+}
+.favorite{
+    margin-left: 1000px;
+    margin-top: -80px;
+    color: #888888;
+    font-size: 13px;
+    font-weight: 100;
+}
+.cl{
+    margin-top: 0px;
+    line-height: 30px;
+}
+.cl a{
+    font-size: 16px;
+    color: black;
+}
+.tps{
+    font-size: 13px;
+    letter-spacing:2px;
+}
+.tps a{
+    font-size: 13px;
+    letter-spacing:6px;
+}
+.panel-heading div{
+    margin-left: 580px;
+}
+.y a{
+    margin-left: 10px;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 300;
+}
+#icon_title{
+    margin-top: 4px;
+}
+#btncontain{
+    width: 56%;
+    position:absolute;
+    text-align: center;
+    background: linear-gradient(180deg,rgba(255,255,255,0),#F0F0F0);/*实现渐变效果，遮罩效果*/
+}
+.btn-info i{
+    font-size: 28px;
+    margin-top: 10px;
+}
+.fblock{
+    width: 150px;
+    height: 65px;
+    margin-top: -10px;
+    border-radius: 6px;
+    margin-left: 100px;
+    color: #444;
+    background-color: white;
+    /*border: 1px solid black;*/
+}
+.fblock div{
+    margin-top: 5px;
+    padding-top: 3px;
+}
+.all i{
+    padding-right: 38px;
+    font-size: 14px;
+}
+#midaben_con{
+    background-color: white;
+}
+.midaben_demo{
+    width: 250px;
+    height: 140px;
+    margin-left: 20px;
+    margin-top: 10px;
+    /*border: 1px solid black;*/
+}
+.midaben_demo div{
+    width: 124px;
+    height: 70px;
+    font-weight: 100;
+    text-align: center;
+    line-height: 30px;
+    /*border: 1px solid black;*/
+}
+.midaben_demo div span{
+    color: sandybrown;
+    font-size: 18px;
+}
+.midaben_pass{
+    background-color: white;
+    width: 290px;
+    height: 340px;
+    margin-top: 30px;
+    border: 1px solid #F3F3F3;
+}
+.one{
+    color: #B2B2B2;
+    font-size: 12px;
+}
+.xi1{
+    color: sandybrown;
+    font-size: 14px;
+}
+
+.div2{
+    /*border: 1px solid black;*/
+    width: 290px;
+    height: 890px;
+    float: right;
+    position: absolute;
+    top: 200px;
+    left:1078px;
+    bottom: 0;
+}
+
+.midaben_pass{
+    background-color: white;
+    width: 290px;
+    height: 340px;
+    margin-top: 30px;
+    border: 1px solid #F3F3F3;
+}
+.comiis_wz_vlist{
+    /*border: 1px solid black;*/
+    width: 240px;
+    margin-left: 20px;
+    margin-top: -20px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.comiis_wz_vlist ul li{
+    border-bottom: 1px solid #D2D2D2;
+}
+.comiis_wz_vlist ul span{
+    font-size: 16px;
+}
+.comiis_wz_vlist ul li a{
+    widows: 240px;
+    /*border: 1px solid black;*/
+    line-height: 32px;
+    color: #444;
+    font-weight: 100;
+}
+.hot{
+    color: sandybrown;
+}
+.hot2{
+    color: sandybrown;
+}
+#frt{
+    margin-left: 160px;
+    margin-top: 25px;
+    line-height: 15px;
+    font-weight: 100;
+    font-size: 12px;
+    color: #6d6d6d;
+}
+#frt a{
+    padding-left: 4px;
+    font-weight: 100;
+    font-size: 12px;
+    color: #6d6d6d;
+}
+.ont li a:hover{
+    color: darkorange;
+    text-decoration: none
+}
+
+

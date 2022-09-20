@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="css/plate.css" charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="layui/layui.js">
+    <style>
+        .tit1:hover{
+            color: #ff8d9f;
+            text-decoration: none
+        }
+        /*导航*/
+        #uuul ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #uuul ul li{
+            margin-right: 15px;
+            width: 45px;
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+        }
+        #uuul ul li a{
+            text-decoration: none;
+        }
+        #frt{
+            margin-left: 160px;
+            margin-top: 25px;
+            line-height: 15px;
+            font-weight: 100;
+            font-size: 12px;
+            color: #b5b5b5;
+        }
+        #frt a{
+            padding-left: 4px;
+            font-weight: 100;
+            font-size: 12px;
+            color: #b5b5b5;
+        }
+    </style>
+
+</head>
+<body>
+<!--头部导航-->
+<div  style="border:1px;width:100%; z-index: 999; height:50px;background-color: dimgrey;">
+    <div id="uuul" style="border: 1px;width: 80%;height: 50px;margin-left: 150px" >
+        <ul>
+            <ul>
+                <li class="a" style="width: 50px"><a href="Customer.html" title="BBS" style="color: white;font-size: 16px;">论坛</a></li>
+                <li id="Curon1" class="a" style="float: right; width: 120px;display: none"><a href="login.html" title="BBS" style="color: cyan;font-size: 16px"><span>退出登录 </span></a></li>
+                <li id="Curon2" class="a" style="float: right; width: 120px;"><a id="tui" href="login.html" title="BBS" style="color: cyan;font-size: 16px"><span>登录 | </span></a><a href="enroll.html" style="color: white;font-size: 16px"> 注册</a></li>
+                <li class="a" style="float: right;"><a href="" title="BBS" style="color: white;font-size: 16px"><span id="uname"></span></a></li>
+                <li class="comiis_logo" id="uiconn" style="float: right;"><a href="user.html" id="uicon"></a></li>
+            </ul>
+        </ul>
+    </div>
+</div>
+<!--板块-->
+<div class="collect" style="margin-top: 80px;">
+    <div class="div_icon">
+
+    </div>
+    <div class="div_title">
+        <h4 style="margin-top: 27px;">
+           <span id="ufo6"></span>
+        </h4>
+    </div>
+</div>
+
+<!--帖子-->
+<div class="theme">
+
+<div class="layui-collapse">
+    <div class="layui-colla-item">
+        <h2 class="layui-colla-title">
+
+        </h2>
+
+        <div class="layui-colla-content layui-show">
+            <div class="panel-body" style="height: auto;">
+                <div id="textcontain" style="height: 600px; overflow: hidden;" >
+
+                </div>
+
+                <div class="open-btn" id="btncontain">
+                    <a onclick="showMore()" style="color: skyblue;">查看更多</a>
+                </div>
+
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+
+        <br/>
+    </div>
+</div>
+
+<!--发帖-->
+    <div class="panel panel-default" id="Fapost" style="margin-top: 20px;display: none">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                发帖
+            </h3>
+        </div>
+        <div class="panel-body">
+
+            <input id="title"  type="text" maxlength="40" name="title" required lay-verify="required" placeholder="最多输入40个字符" autocomplete="off" class="layui-input" style="width: 340px; height: 30px;">
+
+            <div class="panel panel-default" style="margin-top: 15px;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span ><i class="layui-icon layui-icon-face-smile" style="font-size: 20px; color: #1E9FFF;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-face-cry" style="font-size: 20px; color: #8bff80;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-face-smile-b" style="font-size: 20px; color: #e28045;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-face-surprised" style="font-size: 20px; color: #ff6285;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-circle" style="font-size: 20px; color: #ffd676;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-water" style="font-size: 20px; color: #ff6589;margin-right: 20px"></i> </span>
+                    </h3>
+                </div>
+                <div class="panel-body" style="height: 200px; text-align: center; line-height: 160px;">
+                    <div class="pt hm">
+                        <textarea id="context"  type="text" class="layui-input" style="width: 99%; height: 175px;padding: 20px"></textarea>
+                    </div>
+                </div>
+            </div>
+            <a  style="text-decoration:none" id="btn">
+                <div style="height: 30px; width: 100px;background: #EB7350; color: white; font-size: 12px; line-height: 30px; text-align: center;">发表帖子</div>
+            </a>
+        </div>
+    </div>
+
+    <!--发帖-->
+    <div class="panel panel-default" id="Fapost2" style="margin-top: 20px">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                发帖
+            </h3>
+        </div>
+        <div class="panel-body">
+
+            <input id="title1"  type="text" maxlength="40" name="title" required lay-verify="required" placeholder="最多输入40个字符" autocomplete="off" class="layui-input" style="width: 340px; height: 30px;">
+
+            <div class="panel panel-default" style="margin-top: 15px;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span ><i class="layui-icon layui-icon-face-smile" style="font-size: 20px; color: #1E9FFF;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-face-cry" style="font-size: 20px; color: #8bff80;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-face-smile-b" style="font-size: 20px; color: #e28045;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-face-surprised" style="font-size: 20px; color: #ff6285;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-circle" style="font-size: 20px; color: #ffd676;margin-right: 20px"></i> </span>
+                        <span ><i class="layui-icon layui-icon-water" style="font-size: 20px; color: #ff6589;margin-right: 20px"></i> </span>
+                    </h3>
+                </div>
+                <div class="panel-body" style="height: 200px; text-align: center; line-height: 160px;">
+                    <div class="pt hm">
+                        <div id="context1" disabled="disabled"  type="text" class="layui-input" style="width: 99%; height: 175px;padding: 20px;line-height: 160px;">
+                            <div  style="margin-left: -30px">您未登录或未实名认证(如未实名请在个人信息中实名认证)&emsp;<a href="/login.html" style="color: #01AAED" class="xi2">登录</a> | <a href="/enroll.html" class="xi2" style="color: #01AAED">立即注册</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a  style="text-decoration:none" id="btn1">
+                <div style="height: 30px; width: 100px;background: #EB7350; color: white; font-size: 12px; line-height: 30px; text-align: center;">发表帖子</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--公告-->
+<div class="div2" style="margin-top: 50px;">
+    <div class="panel panel-default">
+        <div class="panel-body" style="height: 260px;">
+            <h3 style="color: #F4A460;">公告：</h3>
+            <p style="color: #01AAED;margin-top: 15px;" id="notice">欢迎使用</p>
+        </div>
+    </div>
+
+    <!--最新发表-->
+    <div class="midaben_pass">
+
+        <div class="layui-tab" >
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="comiis_wz_vlist kmltjx cl">
+
+                        <ul class="ont">
+                            <li class="layui-this" style="width: 100%;height: 40px;">
+                                <span class="zui" style="float: left;margin-top: 5px;">最新发表</span>
+                                <a class="more" href="http://localhost:1112/Customer.html"><span style="font-size: 10px; float: right;margin-top: 10px;">更多</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--底部-->
+<div style="height: 100px; background-color: #333333; border: 1px solid black; margin-top: 120px; position: relative;z-index: -20;" >
+    <div id="frt">
+        <p><a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2021024078号-1</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41172502000137" target="_blank"> 豫公网安备 41172502000137号</a>
+            . 版权所有: 在线论坛
+        </p>
+    </div>
+</div>
+
+<button id="test" style="border: none; position:fixed;right:0;top:320px;width: 20px;background: #5db4e2;color: white"><i class="layui-icon">&#xe619;</i><br/><i class="layui-icon">&#xe619;</i><br/><i class="layui-icon">&#xe619;</i></button>
+
+</body>
+</html>
+<script>
+    $(function (){
+        getSession()
+    })
+
+    test.onclick = function(){
+        scrollTo(0,0);
+    };
+
+    function getSession(){
+        $.ajax({
+            url: "/getSession",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var uname=data.uname;
+                var uicon=data.uicon;
+                var realstate=data.realstate;
+                $("#uname").append(uname);
+                $("#uicon").append("<img src=\"img/"+uicon+"\" style=\"width: 30px; height: 30px;\" class=\"img-circle\">");
+                //alert(data)
+                if (data!=null ){
+                    $("#Fapost").css("display","");
+                    $("#Fapost2").css("display","none");
+                    $("#Curon1").css("display","");
+                    $("#Curon2").css("display","none");
+                    if ( realstate==0){
+                        $("#Fapost").css("display","none");
+                        $("#Fapost2").css("display","");
+                        $("#Curon1").css("display","none");
+                        $("#Curon2").css("display","");
+                    }
+                }
+            }
+        })
+    }
+
+
+    //通过地址栏get提交获取当前子版块ID
+    var smid=oneValues();
+    function oneValues(){
+        var result;
+        var url=decodeURI(window.location.search); //获取url中"?"符后的字串
+        if(url.indexOf("?") != -1) {
+            result = url.substr(url.indexOf("=")+1);
+        }
+        return result;
+    }
+    if (!smid){
+        $("#Fapost").css("display","none");
+        $("#Fapost2").css("display","")
+    }
+
+    $.ajax({
+        url: "/SmAll",
+        type: "post",
+        data:{
+            "smid":smid
+        },
+        dataType: "json",
+        success: function (data) {
+            var arr=data.list;
+            var smname;
+            $(".div_icon").append("<img src=\"img/"+arr[0].smicon+"\" class=\"img-thumbnail\">");
+            for (var i=0;i<data.list.length;i++){
+                var pid=arr[i].pid;
+                $("#Rpost").append("<span id='Punm"+pid+"'>"+pid+"</span>");
+                var pname=arr[i].pname;
+                var ptime=arr[i].ptime;
+                var uicon=arr[i].uicon;
+                smname=arr[i].smname;
+                var pstate=arr[i].pstate;
+                if (pstate=="1"){
+                    continue;
+                }
+
+                $("#textcontain").append("   <div id='one"+pid+"' class=\"one\">\t\n" +
+                    "\n" +
+                    "          <div class=\"fl_icn_g\" style=\"width: 65px;\">\n" +
+                    "        \t<a href=\"index.html\"><img id=\"icon_title\" src='img/"+uicon+"' class=\"img-circle\" align=\"left\" style=\"width: 65px;height: 65px; margin-right: 20px;\" alt=\"版本发布\"></a>\n" +
+                    "          </div>\n" +
+                    "          \n" +
+                    "          <h2 class=\"cl\">\n" +
+                    "            <span class=\"comiis_common\">\n" +
+                    "            \n" +
+                    "            <a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\">"+pname+"</a>\n" +
+                    "            <img src=\"https://cdn-bbs.mt2.cn/template/comiis_mi/img/image_s.gif\" alt=\"attach_img\" title=\"图片附件\" align=\"absmiddle\">\n" +
+                    "            <img src=\"https://cdn-bbs.mt2.cn/template/comiis_mi/img/hot_1.gif\" align=\"absmiddle\" alt=\"heatlevel\" title=\"热度: 64\">\n" +
+                    "            </span>\n" +
+                    "          </h2> \n" +
+                    "          \n" +
+                    "          <p>\n" +
+                    "            <em>发表时间 <a><span title=\"\">"+ptime+"</span></a></em>\n" +
+                    "            <em>\n" +
+                    "            </em>\n" +
+                    "          </p>\n" +
+                    "        </div>\n" +
+                    "         <hr />")
+
+                    $.ajax({
+                        url: "/Rpost",
+                        type: "post",
+                        data: {"pid": pid},
+                        dataType: "json",
+                        success: function (data) {
+                            for (var h=0;h<data.length;h++){
+                                $("Rpost"+pid+"").html(data)
+                            }
+                        }
+                    });
+            }
+            $("#ufo6").append(" <a href=\"http://localhost:1112/plate.html?smid="+smid+"\" class=\"tit1\"> "+smname+"</a>")
+        }
+    });
+
+
+    $.ajax({
+        url: "/postAll",
+        type: "post",
+        contentType: "application/json ; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var arr=data.list;
+            for (var i=0;i<data.list.length;i++){
+                var pid=arr[i].pid;
+                var pname=arr[i].pname;
+                var pcontent=arr[i].pcontent;
+                var ptime=arr[i].ptime;
+                if (i<3){
+                    $(".ont").append(" <li>\n" +
+                        "<span class=\"hot\">"+(i+1)+".</span>\n" +
+                        "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+pname+"\" target=\"_blank\">"+pname+"</a\n" +
+                        "</li>")
+                }else {
+                    $(".ont").append(" <li>\n" +
+                        "<span>"+(i+1)+".</span>\n" +
+                        "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+pname+"\" target=\"_blank\">"+pname+"</a\n" +
+                        "</li>")
+                }
+            }
+        }
+    })
+
+    $("#btn").click(function (){
+        var title=$("#title").val();
+        var context=$("#context").val();
+        $.ajax({
+            url: "/addPost",
+            type: "post",
+            data:{
+              "pname":title,
+              "pcontent":context,
+                "smid":smid
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data==1){
+                    layer.msg("提交成功", {icon: 1,time:1000});
+                    location.reload()
+                }else{
+                    layer.msg("提交失败", {icon: 5,time:1000});
+                }
+            }
+        })
+    })
+
+
+</script>
+
+<script>
+    $('#chain').bind('input propertychange',function(){ //添加监听input值的改变事件
+        var tvalmum;
+        //统计input输入字段的长度
+        tvalnum = $(this).val().length;
+        //如果大于8个字直接进行字符串截取
+        if(tvalnum>40){
+            var tval = $(this).val();
+            tval = tval.substring(0,40);
+            $(this).val(tval);
+            alert('长度超过限制！');
+        }
+    });
+</script>
+
+<script>
+    // 点击显示更多按钮
+    function showMore() {
+        $("#textcontain").height("auto");//取消文字容器高度限制
+        $("#btncontain").hide();//隐藏查看更多按钮
+    }
+</script>
+<script type="text/javascript" src="layui/layui.js" ></script>
+
+<script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+
+        //…
+    });
+</script>

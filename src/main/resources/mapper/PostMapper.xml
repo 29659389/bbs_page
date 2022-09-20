@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wusan.forum.mapper.show.PostMapper">
+    <!--帖子展示-->
+<select id="findPost" resultType="com.wusan.forum.entity.show.Post" parameterType="java.lang.String">
+    select p.*,u.uicon from tab_post p join tab_post_user r on p.pid=r.pid join tab_user u on u.uid=r.uid where p.pid=#{pid}
+</select>
+
+<select id="findReply" resultType="com.wusan.forum.entity.show.Post">
+    select * from tab_reply tr join tab_r_p trp on tr.rid= trp.rid join tab_user u on tr.uid=u.uid
+    where trp.pid=#{pid} and tr.rstate=0
+</select>
+
+
+
+</mapper>

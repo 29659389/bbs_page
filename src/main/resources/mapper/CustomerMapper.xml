@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wusan.forum.mapper.CustomerMapper">
+    <select id="findAll" resultType="com.wusan.forum.entity.Customer" >
+         select * from tab_module  where mstate=0 order by mid
+    </select>
+
+    <select id="replyAll" resultType="com.wusan.forum.entity.reply">
+        select r.*,p.* from tab_reply r join tab_r_p s on s.rid=r.rid join tab_post p on s.pid=p.pid  ORDER BY r.rtime desc LIMIT 8
+    </select>
+
+    <select id="OstAll" resultType="com.wusan.forum.entity.post">
+        select * from tab_post where pstate=0 ORDER BY ptime desc LIMIT 8
+    </select>
+
+    <select id="postAll" resultType="com.wusan.forum.entity.post">
+       select * from tab_post where pstate=0 ORDER BY ptime desc LIMIT 8
+    </select>
+
+    <select id="replyAlls" resultType="com.wusan.forum.entity.reply">
+        select r.*,p.* from tab_reply r join tab_r_p s on s.rid=r.rid join tab_post p on s.pid=p.pid  ORDER BY p.ptime LIMIT 0,8
+    </select>
+
+    <select id="postAlls" resultType="com.wusan.forum.entity.post">
+       select r.*,p.* from tab_reply r join tab_r_p s on s.rid=r.rid join tab_post p on s.pid=p.pid  ORDER BY r.rtime desc LIMIT 0,8
+    </select>
+
+    <select id="sonAll" resultType="com.wusan.forum.entity.Module" parameterType="java.lang.Integer">
+        select m.*,s.* from tab_module m
+         join tab_m_sm sm on m.mid=sm.mid
+         join tab_son_Module s
+         on sm.smid=s.smid
+         where m.mstate=0 AND m.mid=#{mid} AND s.smstate=1  order by mid
+    </select>
+
+    <select id="ConAll" resultType="com.wusan.forum.entity.Module" >
+        SELECT m.*,s.*,st.pname from tab_module m
+        join tab_m_sm sm on m.mid=sm.mid
+            JOIN tab_son_Module s
+                on sm.smid=s.smid
+                join tab_pranking p on sm.smid=p.smid
+                    JOIN tab_post st on p.pid=st.pid
+        where m.mid=2
+    </select>
+
+
+    <select id="FonAll" resultType="com.wusan.forum.entity.Module" >
+        SELECT m.*,s.*,st.pname from tab_module m
+            join tab_m_sm sm on m.mid=sm.mid
+            JOIN tab_son_Module s
+                on sm.smid=s.smid
+            join tab_pranking p on sm.smid=p.smid
+            JOIN tab_post st on p.pid=st.pid
+        where m.mid=3
+    </select>
+
+
+    <select id="SmAll" resultType="com.wusan.forum.entity.Module" parameterType="java.lang.String">
+        SELECT m.*,s.*,st.*,tu.uicon from tab_module m join tab_m_sm sm on m.mid=sm.mid
+           JOIN tab_son_Module s on sm.smid=s.smid
+           join tab_sm_post p on sm.smid=p.smid
+           JOIN tab_post st on p.pid=st.pid
+           join tab_post_user tpu on tpu.pid=st.pid
+           join tab_user tu on tu.uid=tpu.uid
+            where s.smid=#{smid}
+    </select>
+
+</mapper>

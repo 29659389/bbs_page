@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wusan.forum.mapper.AddPostMapper">
+    <insert id="addPost"  parameterType="java.util.Map">
+        insert into tab_post(pname,pcontent,ptime) VALUES(#{pname},#{pcontent},#{ptime})
+    </insert>
+    <select id="getIdentity" resultType="java.lang.Integer" >
+        select @@identity
+    </select>
+    <insert id="addPostAndUser"  parameterType="java.lang.Integer">
+        insert into tab_post_user(uid,pid) VALUES(#{uid},#{pid})
+    </insert>
+    <insert id="addPostAndSonModule"  parameterType="java.lang.Integer">
+        insert into tab_sm_post(smid,pid) VALUES(#{smid},#{pid})
+    </insert>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wusan.forum.mapper.TotaiMapper">
+    <select id="NumAll" resultType="com.wusan.forum.entity.post" parameterType="java.lang.String">
+         SELECT COUNT(pid) pid from tab_post
+    </select>
+
+    <select id="VipAll" resultType="com.wusan.forum.entity.UserInfo" parameterType="java.lang.String">
+         select COUNT(u.gid) gid from tab_user u join tab_grade g on u.gid=g.gid
+    </select>
+
+    <select id="SAll" resultType="com.wusan.forum.entity.Module" parameterType="java.lang.String">
+         SELECT COUNT(*) smid from tab_son_Module where smstate=1
+    </select>
+
+    <select id="YAll" resultType="com.wusan.forum.entity.post" parameterType="java.lang.String">
+         SELECT COUNT(*) ptime FROM  tab_post WHERE DATE_FORMAT( ptime, '%Y%m' ) = DATE_FORMAT( CURDATE( ) ,'%Y%m' )
+    </select>
+
+    <select id="Rpost" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+         select COUNT(*) from tab_reply tr join tab_r_p trp on tr.rid= trp.rid join tab_user u on tr.uid=u.uid where trp.pid=#{pid}
+    </select>
+
+</mapper>

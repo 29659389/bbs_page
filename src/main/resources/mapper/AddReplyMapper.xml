@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wusan.forum.mapper.AddReplyMapper">
+    <insert id="addReply" parameterType="java.util.Map">
+        insert into tab_reply(uid,rcontent,rtime) values(#{uid},#{rcontent},#{rtime})
+    </insert>
+    <select id="getIdentity" resultType="java.lang.Integer" >
+        select @@identity
+    </select>
+    <insert id="addRepluAndPost" parameterType="java.util.Map">
+        insert into tab_r_p(rid,pid) values(#{rid},#{pid})
+    </insert>
+</mapper>

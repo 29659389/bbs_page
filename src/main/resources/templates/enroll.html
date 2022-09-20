@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="layui/css/modules/layer/default/layer.css" />
+    <script type="text/javascript" src="layui/layui.js" ></script>
+    <style>
+        body
+        {
+            margin:0;
+            padding: 0;
+            font-family: sans-serif;
+            background: url(../img/adminbackground.jpg);
+            background-size: cover;
+        }
+        #name{
+            /*background: none;*/
+            padding-left: 5px;
+            margin-left: 20px;
+            margin-top:  20px;
+            color: #1E9FFF;
+            border: 1px solid #CCCCCC;
+            height: 26px;
+            width: 200px;
+        }
+        .input-cl{
+            padding-left: 5px;
+            margin-left: 20px;
+            margin-top: 17px;
+            border: 1px solid #CCCCCC;
+            color: #1E9FFF;
+            height: 26px;
+            width: 200px;
+        }
+        #input3{
+            margin-left: 84px;
+            margin-right: 500px;
+            margin-top: 20px;
+            height: 40px;
+            width: 70px;
+            background: transparent;
+            border: none;
+            outline:none;
+            color: #fff;
+            background: #03a9f4;
+            padding: 10px 20px;
+            cursor:pointer;
+            border-radius: 5px;
+        }
+        .div1{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 600px;
+            height: 340px;
+            padding-top: 20px;
+            padding-left: 20px;
+            background: rgba(0,0,0,.8);
+            box-sizing : border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            border-radius: 6px;
+            border: 1px solid #CCCCCC;
+        }
+        .namem{
+            color: white;
+            font-size: 12px;
+        }
+        .emcl{
+            color: white;
+            font-size: 15px;
+        }
+        .div1 h2
+        {
+            margin:0 0 10px;
+            padding: 0;
+            color: #fff;
+        }
+        input{
+            color: #fff;
+            letter-spacing: 1px;
+            background: none;
+            outline: none;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+
+<div class="div1">
+    <h2>注册</h2>
+    <form action="/login.html">
+        <span class="emcl">密码:&ensp;&ensp;&ensp;&ensp;</span>
+        <input style="border: none;border-bottom: 1px solid #fff;"  type="password" maxlength="12" onclick="return ischeckemail()" class="input-cl" id="password1"/>
+        <span class="namem">最多输入12个字符</span>
+        <br />
+        <span class="emcl">确认密码:</span>
+        <input  style="border: none;border-bottom: 1px solid #fff;" type="password" onclick="return ischeckemail()" class="input-cl" id="password2"/>
+        <span id="pass" style="color: red;"></span>
+        <br />
+        <span class="emcl">手机号:&ensp;&ensp;</span>
+        <input  style="border: none;border-bottom: 1px solid #fff;" type="tel" title="phone" onclick="return ischeckemail()" class="input-cl" id="phonename"/>
+        <span id="phone" style="color: red;"></span>
+        <br />
+        <em class="emcl">用户名:&ensp;&ensp;</em>
+        <input style="border: none;border-bottom: 1px solid #fff;" type="text" onclick="return ischeckemail()" maxlength="12" id="name"/>
+        <span class="namem">最多输入12个字符</span>
+        <br />
+        <button  type="submit" value="提交"  id="input3">提交</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script>
+
+    //添加
+    $("#input3").click(function () {
+        var uname=$("#name").val();
+        var upwd=$("#password2").val();
+        var uphone=$("#phonename").val();
+       // alert(uname+uphone+upwd);
+        if (!uname || !uphone || !upwd){
+            layer.msg("内容为空或格式错误,请重新填写",{time:5000});
+            return false
+        }else{
+            $.ajax({
+                url:"addUser"
+                ,data:{
+                    uname:uname
+                    ,upwd:upwd
+                    ,uphone:uphone
+                }
+                ,dataType:"text"
+                ,type:"post"
+                ,success:function (data) {
+                    alert(data)
+                }
+            })
+        }
+    });
+</script>
+
+<script>
+    function ischeckemail(){
+
+        $("#phone").text(" ");
+        var phone = document.getElementById("phonename").value;
+        if (phone != "") {
+            var reg =/^1[34578]\d{9}$/;
+            isok= reg.test(phone);
+            if (!isok) {
+                $("#phone").append("手机号格式不正确，请重新输入！");
+                document.getElementById("phonename").focus();
+                return false;
+            }
+            $.ajax({
+                url: "/selePhone",
+                type: "post",
+                dataType: "json",
+                data:{
+                    "phone":phone
+                },
+                success: function (data) {
+                    if (data==1){
+                        $("#phone").append("手机号已被注册");
+                        return;
+                    }
+                }
+            })
+        }
+
+        $("#pass").text(" ");
+        var password1 = $("#password1").val();
+        var password2 = $("#password2").val();
+        if(!password2 || password2.length < password1.length){
+            return;
+        }
+
+        if (password1 != password2){
+            $("#pass").append("两次密码不一致，请重新输入！");
+            document.getElementById("password2").focus();
+            return;
+        }
+
+
+    }
+
+</script>

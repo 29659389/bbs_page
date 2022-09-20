@@ -1,0 +1,699 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="layui/layui.js" ></script>
+    <script type="text/javascript" src="js/jquery-3.5.1.js" ></script>
+    <script type="text/javascript" src="js/toastr.min.js" ></script>
+    <link rel="stylesheet" href="css/toastr.min.css" />
+    <link rel="stylesheet" href="layui/css/layui.css" />
+    <link rel="stylesheet" href="css/UserInfo.css" />
+    <link rel="stylesheet" href="css/UserMotai.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+    <style>
+        body{
+            background: #F3F3F3;
+        }
+        .one1{
+            width: 1200px;
+            height: 350px;
+        }
+        .comiis_wide .bm_c {
+            padding: 10px 15px 15px;
+        }
+        .bm_c {
+            padding: 10px;
+        }
+        * {
+            word-wrap: break-word;
+        }
+        div {
+            display: block;
+        }
+        body, input, button, select, textarea {
+            font: 12px
+            /1.5 'Microsoft Yahei','Simsun',Tahoma;
+            color: #444;
+        }
+        .pbm ul{
+            list-style: none;
+        }
+        .pipe{
+            margin-left: 6px;
+            color: #ADAAAA;
+        }
+        #ul11 li{
+            float:left;
+            width: 200px;
+        }
+        #name{
+            /*background: none;*/
+            padding-left: 5px;
+            margin-left: 20px;
+            margin-top:  30px;
+            color: #db101e;
+            border: 1px solid #CCCCCC;
+            height: 26px;
+            width: 170px;
+        }
+        #idcard{
+            padding-left: 5px;
+            margin-left: 20px;
+            margin-top: 17px;
+            border: 1px solid #CCCCCC;
+            color: #db101e;
+            height: 26px;
+            width: 170px;
+        }
+        #input3{
+            margin-left: 75px;
+            margin-right: 500px;
+            margin-top: 20px;
+            height: 25px;
+            width: 60px;
+            border: none;
+            color: white;
+            background: sandybrown;
+        }
+        #frt{
+            margin-left: 160px;
+            margin-top: 25px;
+            line-height: 15px;
+            font-weight: 100;
+            font-size: 12px;
+            color: #b5b5b5;
+        }
+        #frt a{
+            padding-left: 4px;
+            font-weight: 100;
+            font-size: 12px;
+            color: #b5b5b5;
+        }
+
+        /*导航*/
+        #uuul ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #uuul ul li{
+            margin-right: 15px;
+            width: 45px;
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+        }
+        #uuul ul li a{
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--头部导航-->
+<div  style="border:1px;width:100%; z-index: 999; height:50px;background-color: dimgrey;">
+    <div id="uuul" style="border: 1px;width: 80%;height: 50px;margin-left: 150px" >
+        <ul>
+            <ul>
+                <li class="a" style="width: 50px"><a href="Customer.html" title="BBS" style="color: white;font-size: 16px;">论坛</a></li>
+                <li class="a" style="float: right; width: 100px;"><a id="tui" href="login.html" title="BBS" style="color: cyan;font-size: 16px"><span>退出登录</span></a></li>
+                <li class="a" style="float: right;width: 60px;"><a href="" title="BBS" style="color: white;font-size: 16px"><span id="unaem"></span></a></li>
+                <li class="comiis_logo" id="uiconn" style="float: right;"><a href="user.html" id="uicon"></a></li>
+            </ul>
+        </ul>
+    </div>
+</div>
+
+<div class="title" style=" margin-top: 100px; background: white ;border-radius: 10px;margin-left: 170px; height: 130px; width: 1200px; border: 1px solid white;">
+    <div  style="width: 140px;height: 140px; border: 8px solid white; margin-top: -60px; margin-left: 30px;border-radius: 6px;">
+        <div id="icon_t" style="height: 140px; width: 140px;">
+        </div>
+        <a><button type="button" class="layui-btn layui-btn-xs layui-btn-radius"  id="test1" style="margin-top: 10px;margin-left: 35px; border: none;background: none;color: cornflowerblue;">修改头像</button></a>
+        <div style="margin-left: 190px; width: 800px;height: 40px;line-height: 40px; margin-top: -80px;"><em>第二天的你还是你吗?</em></div>
+    </div>
+</div>
+
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" style="margin-left: 170px;">
+    <ul class="layui-tab-title" style="background: #F3F3F3;">
+        <li class="layui-this">基本资料</li>
+        <li>实名认证</li>
+        <li>我的帖子</li>
+    </ul>
+
+    <div class="layui-tab-content" style="height: 350px;width: 1200px; background: white;border-radius: 10px;">
+        <div class="layui-tab-item layui-show">
+            <div class="one1">
+                <div class="bm_c">
+                    <div class="bm_c u_profile">
+
+                        <div class="pbm mbm bbda cl">
+                            <h2 class="mbn" style="font-size: 16px;">
+                                <span id="ufo1"></span><img src="https://cdn3-bbs.mt2.cn/template/comiis_mi/img/ol.gif" alt="online" title="在线" class="vm">&nbsp;
+                                <span class="xw0" style="font-size: 12px;">(uid: <span id="ufo2"></span>)</span>
+                                <span class="xw0" style="font-size: 12px;"><a><input  type="button" value="修改用户名" id="upuname" style="border: none; background: none; color: #0099FF;"/></a></span>
+                            </h2>
+                            <ul class="pf_l cl pbm mbm" style="margin-top: 5px;">
+                                <li><em>邮箱:</em>&emsp;&emsp;<span id="ufo3"></span>&emsp;&emsp;<a><input  type="button" value="修改邮箱信息" id="email" style="border: none; background: none; color: #0099FF;"/></a></li>
+                            </ul>
+                            <ul>
+                            </ul>
+                            <ul class="cl bbda pbm mbm">
+                                <li>
+                                    <span>统计信息</span>
+                                    <span class="pipe">|</span>
+                                    <span target="_blank" id="Fapost">发帖数 </span>
+                                    <span class="pipe">|</span>
+                                    <span target="_blank">&emsp;回帖数 <em id="Hapost2"></em></span>
+                                </li>
+                                <hr/>
+                            </ul>
+                            <ul class="pf_l cl">
+                                <li style="width: 220px;"><em>性别 :</em>&emsp;&emsp;保密</li>
+                                <li style="width: 420px;"><em>地址 :</em>&emsp;&emsp;<span id="ufo4"></span>&emsp;&emsp;<a><input  type="button" value="修改地址信息" id="btn" style="border: none; background: none; color: #0099FF;"/></a></li>
+                            </ul>
+                        </div>
+
+                    </div><div id="diycontentbottom" class="area"></div></div>
+            </div>
+        </div>
+
+        <div class="layui-tab-item">
+            <div class="layui-form">
+                <div style="height: 50px;">
+
+                </div>
+                <div id="noshiming" style="width: 98%; height: 200px; margin: 0 0 0 20px; border-bottom: 1px dashed #CCCCCC">
+                    <form method="post" action="" style="margin-left: 40px;margin-top: -50px">
+                        <span>真实姓名:</span>
+                        <input  placeholder="请输入您的真实姓名" name="name" id="name"/>
+                        <br />
+                        <span>身份证号:</span>
+                        <input  type="text" placeholder="请输入您的身份证号" name="idcard" id="idcard"/>
+                        <br/>
+                        <input   value="开始验证" id="input3"/>
+                    </form>
+                </div>
+                <div id="shiming" style="display: none" >
+                    <div style=" margin-left: 40px; background: #4cdb8d; width: 100px;height: 100px; border: 1px solid #C0C4CC; border-radius: 120px;">
+                        <p style="font-size: 120px; color: whitesmoke; margin-top: -60px;margin-left: 10px;">✔</p>
+                        <p style="font-size: 20px; width: 120px;">您已实名认证</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-tab-item"style="height: 400px;">
+            <div class="layui-form" >
+                <div id="post1" style="width: 98%; height: 200px; margin: 0 0 0 20px; border-bottom: 1px dashed #CCCCCC">
+                    <table id="demo" lay-filter="test"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部-->
+<div style="height: 100px; background-color: #333333; border: 1px solid black; margin-top: 120px; position: relative;z-index: -20;" >
+    <div id="frt">
+        <p> <a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2021024078号-1</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41172502000137" target="_blank"> 豫公网安备 41172502000137号</a>
+        </p>
+        <p style="margin-left: 6px;">版权所有: 在线论坛</p>
+    </div>
+</div>
+
+<button id="test" style="border: none; position:fixed;right:0;top:320px;width: 20px;background: #5db4e2;color: white"><i class="layui-icon">&#xe619;</i><br/><i class="layui-icon">&#xe619;</i><br/><i class="layui-icon">&#xe619;</i></button>
+
+</body>
+</html>
+<!--修改名称模态框-->
+<div id="motaikuangupuname" class="layui-form" style="display: none;padding-top: 20px;padding-left: 20px">
+    <div class="layui-form-item" style="margin-top: 30px;">
+        <label class="layui-form-label" style="width: 120px">请输入名称:</label>
+        <div class="layui-input-block">
+            <input type="text" id="upname" autocomplete="off" class="layui-input" style="width: 300px">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 40px;">
+        <div class="layui-input-block">
+            <button class="layui-btn" style=" margin-left: 10px; background: coral; width: 260px; height: 36px;" lay-submit lay-filter="formDemo" id="sendUpnuame">提交</button>
+        </div>
+    </div>
+</div>
+
+<!--修改地址模态框-->
+<div id="motaikuang" class="layui-form" style="display: none;padding-top: 20px;padding-left: 20px">
+    <div class="layui-form-item" style="margin-top: 30px;">
+        <label class="layui-form-label" style="width: 120px">当前地址:</label>
+        <div class="layui-input-block">
+            <input type="text" id="address1" autocomplete="off" class="layui-input" style="width: 300px">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 30px;">
+        <label class="layui-form-label" style="width: 120px">修改地址:</label>
+        <div class="layui-input-block">
+            <input type="text" id="daaress2" required  lay-verify="required" autocomplete="off"  class="layui-input" style="width: 300px;">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 40px;">
+        <div class="layui-input-block">
+            <button class="layui-btn" style=" margin-left: 10px; background: coral; width: 260px; height: 36px;" lay-submit lay-filter="formDemo" id="daaress3">提交</button>
+        </div>
+    </div>
+</div>
+
+<!--修改邮箱模态框-->
+<div id="motaiemail" class="layui-form" style="display: none;padding-top: 20px;padding-left: 20px">
+    <div class="layui-form-item" style="margin-top: 30px;">
+        <label class="layui-form-label" style="width: 120px">当前邮箱:</label>
+        <div class="layui-input-block">
+            <input type="text" id="umail1"  required  lay-verify="required"  autocomplete="off" class="layui-input" style="width: 300px">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 30px;">
+        <label class="layui-form-label" style="width: 120px">修改邮箱:</label>
+        <div class="layui-input-block">
+            <input type="text" id="umail2" required  lay-verify="required" autocomplete="off"  class="layui-input" style="width: 300px;">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 40px;">
+        <div class="layui-input-block">
+            <button class="layui-btn" style=" margin-left: 10px; background: coral; width: 260px; height: 36px;" lay-submit lay-filter="formDemo" id="umail3">提交</button>
+        </div>
+    </div>
+</div>
+<div id="motaikuang1" class="layui-form" style="display: none;padding-top: -60px; padding-left: 20px">
+    <div class="layui-form-item" style="margin-top: 40px">
+        <label class="layui-form-label" style="width: 100px ">帖子ID:</label>
+        <div class="layui-input-block">
+            <input type="text" id="pid" required lay-verify="required" autocomplete="off" class="layui-input"
+                   style="width: 300px;" readonly>
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 40px">
+        <label class="layui-form-label" style="width: 100px ">帖子标题:</label>
+        <div class="layui-input-block">
+            <input type="text" id="pname" required lay-verify="required" autocomplete="off" class="layui-input"
+                   style="width: 300px;">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 40px">
+        <label class="layui-form-label" style="width: 100px ">帖子内容:</label>
+        <div class="layui-input-block">
+            <input type="text" id="pcontent" required lay-verify="required" autocomplete="off" class="layui-input"
+                   style="width: 300px;">
+        </div>
+    </div>
+    <div class="layui-form-item" style="margin-top: 40px;">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo" id="update">提交</button>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="del">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="state">删除</a>
+</script>
+<script type="text/javascript" src="layui/layui.js"></script>
+<script>
+    layui.use('table', function () {
+        var table = layui.table;
+        //第一个实例
+        table.render({
+            elem: '#demo'
+            , height: 305
+            , where: 700
+            , url: 'Mepost' //数据接口
+            , cols: [[ //表头
+                {field: 'pid', title: 'id', sort: true, fixed: 'left'}
+                , {field: 'pname', title: '标题'}
+                , {field: 'pcontent', title: '内容'}
+                , {field: 'ptime', title: '发表时间'}
+                , {
+                    field: 'pstate', title: '帖子状态', templet: function (d) {
+                        return d.pstate == '0' ? '启用' : '禁用'
+                    }
+                }
+                , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150}
+            ]]
+            , page: true
+            , limits: [5, 10, 15, 20, 25]  //一页选择显示3,5或10条数据
+            , limit: 5  //一页显示10条数据
+            , parseData: function (res) { //将原始数据解析成 table 组件所规定的数据，res为从url中get到的数据
+                var result;
+                console.log(this);
+                console.log(JSON.stringify(res));
+                if (this.page.curr) {
+                    result = res.data.slice(this.limit * (this.page.curr - 1), this.limit * this.page.curr);
+                } else {
+                    result = res.data.slice(0, this.limit);
+                }
+                return {
+                    "code": res.code, //解析接口状态
+                    "msg": res.msg, //解析提示文本
+                    "count": res.count, //解析数据长度
+                    "data": result //解析数据列表
+                };
+            }
+        });
+        table.on('tool(test)', function (obj) {
+            //获取当前行的原始json数据
+            var data = obj.data;
+            $("#pid").val(data.pid);
+            $("#pname").val(data.pname);
+            $("#pcontent").val(data.pcontent);
+            var pid=data.pid;
+            var pstate=data.pstate;
+            if(pstate==0){
+                pstate=1;
+            }else{
+                pstate=0;
+            }
+            if (obj.event === 'del') {
+                layer.open({
+                    type: 1 //Page层类型
+                    , area: ['500px', '500px']
+                    , title: '修改信息'
+                    , shade: 0.6 //遮罩透明度
+                    , maxmin: true //允许全屏最小化
+                    , anim: 1 //0-6的动画形式，-1不开启
+                    , content: $("#motaikuang1")//显示的内容，这里直接显示一个div的模态框
+                });
+            }else if(obj.event === 'state'){
+                $.ajax({
+                    url: "MepostDe",
+                    data: {
+                        pid: pid,
+                        pstate: pstate
+                    },
+                    dataType: "text",
+                    type: "post",
+                    success: function (data) {
+                        if (data == 1) {
+                            layer.msg("修改成功", {icon: 6});
+                            location.reload();
+                        } else {
+                            layer.alert("修改失败")
+                        }
+                    }
+                })
+            }
+        });
+        //修改
+        $("#update").click(function () {
+            var pid = $("#pid").val();
+            var pname = $("#pname").val();
+            var pcontent = $("#pcontent").val();
+            $.ajax({
+                url: "Mepostup",
+                data: {
+                    pid: pid,
+                    pname: pname,
+                    pcontent: pcontent
+                },
+                dataType: "text",
+                type: "post",
+                success: function (data) {
+                    if (data == 1) {
+                        layer.msg("修改成功", {icon: 6});
+                        location.reload();
+                    } else {
+                        layer.alert("修改失败")
+                    }
+                }
+            })
+        });
+
+    })
+</script>
+
+<script type="text/javascript" src="layui/layui.js" ></script>
+<script>
+    $.ajax({
+        url: "/getSession",
+        type: "post",
+        contentType: "application/json ; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var uname=data.uname;
+            var uicon=data.uicon;
+            $("#uicon").append("<img src=\"img/"+uicon+"\" style=\"width: 30px; height: 30px;\" class=\"img-circle\">");
+            $("#unaem").html(uname);
+            if (data==0){
+                $("#Fapost2").css("display","");
+                $("#Fapost").css("display","none");
+            }
+        }
+    });
+
+    test.onclick = function(){
+        scrollTo(0,0);
+    };
+
+    var uid=$("#ufo2").text();
+    $("#btn").click(function(){
+        layer.open({
+            type: 1 //Page层类型
+            , area: ['500px', '400px']
+            , offset: '70px'//定义top坐标，水平保持居中
+            , title: '修改地址'
+            , shade: 0.1 //遮罩透明度
+            , maxmin: true //允许全屏最小化
+            , anim: 1 //0-6的动画形式，-1不开启
+            , content: $("#motaikuang")//显示的内容，这里直接显示一个div的模态框
+        });
+        var address=$("#address1").text();
+        $("#address1").val(address);
+
+    });
+
+    $("#upuname").click(function(){
+        layer.open({
+            type: 1 //Page层类型
+            , area: ['500px', '400px']
+            , offset: '70px'//定义top坐标，水平保持居中
+            , title: '修改名称'
+            , shade: 0.1 //遮罩透明度
+            , maxmin: true //允许全屏最小化
+            , anim: 1 //0-6的动画形式，-1不开启
+            , content: $("#motaikuangupuname")//显示的内容，这里直接显示一个div的模态框
+        });
+
+    });
+
+    $("#sendUpnuame").click(function (){
+        var newname= $("#upname").val()
+        // alert(newname)
+        $.ajax({
+            url: "/upName",
+            type: "post",
+            dataType: "json",
+            data:{
+                "newname":newname
+            },
+            success: function (data) {
+                if(data==1){
+                    layer.msg("修改成功", {time: 1000});
+                }else{
+                    layer.msg("修改失败", {time: 1000});
+                }
+                location.reload();
+                layer.closeAll();
+            }
+        })
+    })
+
+    $("#daaress3").click(function(){
+        var uid2=$("#ufo2").text();
+        alert(uid2);
+        var address2=$("#daaress2").val();
+        $.ajax({
+            url: "/updateUser",
+            type: "post",
+            dataType: "json",
+            data:{
+                "uid":uid2,
+                "address":address2
+            },
+            success: function (data) {
+                if(data==1){
+                    location.reload();
+                    layer.closeAll();
+                    layer.msg("修改地址成功", {time: 1000});
+                }else{
+                    layer.msg("修改地址失败", {time: 1000});
+                }
+            }
+        })
+    });
+
+    $("#email").click(function(){
+        layer.open({
+            type: 1 //Page层类型
+            , area: ['500px', '400px']
+            , offset: '70px'//定义top坐标，水平保持居中
+            , title: '修改邮箱'
+            , shade: 0.1 //遮罩透明度
+            , maxmin: true //允许全屏最小化
+            , anim: 1 //0-6的动画形式，-1不开启
+            , content: $("#motaiemail")//显示的内容，这里直接显示一个div的模态框
+        });
+        var address=$("#umail1").text();
+        $("#umail1").val(address);
+    });
+
+    $("#umail3").click(function(){
+        var uid1=$("#ufo2").text();
+        var umail2=$("#umail2").val();
+        $.ajax({
+            url: "/updateEmail",
+            type: "post",
+            dataType: "json",
+            data:{
+                "uid":uid1,
+                "email":umail2
+            },
+            success: function (data) {
+                if(data==1){
+                    location.reload();
+                    layer.closeAll();
+                    layer.msg("邮箱修改成功", {time: 1000});
+                }else{
+                    layer.msg("邮箱修改失败", {time: 1000});
+                }
+            }
+        })
+    });
+
+</script>
+
+<script>
+
+    $(function x() {
+        findAll();
+    });
+
+    function  findAll() {
+        $.ajax({
+            url: "/UserAll",
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                var realstate=data.realstate;
+                var uname=data.uname;
+                var email=data.email;
+                if(email==""){
+                    email = '未验证';
+                }else {
+                    email = email;
+                }
+                var uid=data.uid;
+                var address=data.address;
+                var uicon=data.uicon;
+                $("#ufo1").append(uname);
+                $("#ufo2").append(uid);
+                $("#ufo3").append(email);
+                $("#ufo4").append(address);
+                $("#address1").append(address);
+                $("#umail1").append(email);
+                $("#icon_t").append("<img src=\"img/"+uicon+"\" class=\"img-rounded\" style=\"height: 140px; width: 140px;box-shadow: 10px 10px 5px #CCCCCC;\">");
+
+                if (realstate==1){
+                    $("#noshiming").css("display","none");
+                    $("#shiming").css("display","")
+                }
+            }
+        })
+    }
+
+    $("#input3").click(function (){
+        var name=$("#name").val();
+        var idcard=$("#idcard").val();
+
+        $.ajax({
+            url: "/Certification",
+            type: "post",
+            dataType: "json",
+            data:{
+                "name":name,
+                "uIDcard":idcard
+            },
+            success: function (data) {
+                if (data==1){
+                    location.reload();
+                }
+            }
+        })
+    });
+
+
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#test1'
+            ,url: '/upload/'
+            ,accept:'images'
+            ,size:50000
+            ,before: function(obj){
+
+                obj.preview(function(index, file, result){
+
+                    $('#demo1').attr('src', result);
+                });
+            }
+            ,done: function(res){
+                //如果上传失败
+                if(res.code > 0){
+                    return layer.msg('上传失败');
+                    location.reload();
+                }
+                //上传成功
+                var demoText = $('#demoText');
+                location.reload();
+                demoText.html('<span style="color: #4cae4c;">上传成功</span>');
+                location.reload();
+                var fileupload = $(".image");
+                fileupload.attr("value",res.data.src);
+                console.log(fileupload.attr("value"));
+            }
+            ,error: function(){
+                //演示失败状态，并实现重传
+                var demoText = $('#demoText');
+                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                demoText.find('.demo-reload').on('click', function(){
+                    uploadInst.upload();
+                });
+            }
+        });
+    });
+
+    $.ajax({
+        url: "/FpostAll",
+        type: "post",
+        contentType: "application/json ; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            $("#Fapost").append("<em>"+data+"</em>");
+        }
+    });
+
+    $.ajax({
+        url: "/HpostAll",
+        type: "post",
+        contentType: "application/json ; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            $("#Hapost2").html(data);
+        }
+    });
+
+</script>

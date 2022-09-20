@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wusan.forum.mapper.UserMapper">
+
+    <select id="UserAll" resultType="com.wusan.forum.entity.UserInfo" parameterType="java.lang.Integer">
+        select *  from tab_user where uid=#{uid}
+    </select>
+
+    <update id="UpdateRealState" parameterType="java.lang.String">
+        update tab_user set realstate ='1' where uid=#{uid}
+    </update>
+
+    <insert id="addRealState" parameterType="java.util.Map">
+        insert into tab_authentication(uid,uname,uIDcard) value (#{uid},#{name},#{uIDcard})
+    </insert>
+
+    <update id="upUicon" parameterType="java.lang.String">
+        update tab_user set uicon =#{uicon} where uid=#{uid}
+    </update>
+
+    <!--修改地址-->
+    <update id="updateUser" parameterType="java.util.Map">
+           update tab_user set  address=#{address} where uid=#{uid}
+    </update>
+
+    <!--修改邮箱-->
+    <update id="updateEmail" parameterType="java.util.Map">
+           update tab_user set  email=#{email} where uid=#{uid}
+    </update>
+
+    <!--发帖数-->
+    <select id="FpostAll" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        SELECT COUNT(*) pnumn from tab_post p JOIN tab_post_user pu on p.pid=pu.pid JOIN tab_user u on pu.uid=u.uid where u.uid=#{uid}
+    </select>
+
+    <!--回帖数-->
+    <select id="HpostAll" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        SELECT COUNT(*) from  tab_reply r  join tab_user u on u.uid=r.uid where u.uid=#{uid}
+    </select>
+
+    <!--我的帖子-->
+    <select id="Mepost" resultType="com.wusan.forum.entity.post" parameterType="java.lang.Integer">
+        SELECT po.* from tab_post po
+                             join tab_post_user pu on pu.pid=po.pid
+                             join tab_user e on pu.uid=e.uid
+        where e.uid=#{uid} and pstate=0
+    </select>
+
+    <update id="Mepostup" parameterType="java.util.Map">
+        update tab_post SET pname=#{post.pname},pcontent=#{post.pcontent},ptime=now() where pid=#{post.pid}
+    </update>
+
+    <update id="MepostDe" parameterType="java.util.Map">
+        update tab_post SET pstate=#{post.pstate} where pid=#{post.pid}
+    </update>
+
+    <update id="upName" parameterType="java.util.Map">
+        update tab_user SET uname=#{newName} where uid=#{uid}
+    </update>
+</mapper>

@@ -1,0 +1,36 @@
+.popupButton {
+    width: 124px;
+    height: 28px;
+    margin: 24px 152px 5px 160px;
+    border-radius: 5px;
+    background: #0099ff;
+    padding: 5px 10px;
+    color: white;
+    border: 1px;
+    cursor: pointer;
+}
+
+.claLevel .ztCla {
+    overflow: hidden;
+    margin-top: 10px;
+}
+.ztCla .claCon {
+    width: 150px;
+    height: 34px;
+    border: 1px solid #adaaaa;
+    padding-left: 5px;
+}
+
+.claLevel span.claTitle {
+    display: block;
+    float: left;
+    width: 150px;
+    text-align: right;
+    line-height: 53px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+.claLevel {
+    overflow: hidden;
+}
+

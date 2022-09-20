@@ -1,0 +1,26 @@
+.setlist {
+    border-bottom: 1px dashed #CCCCCC;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.setlist ul {
+    display: inline-block;
+}
+.setlist li.setname {
+    float: left;
+    line-height: 24px;
+}
+.setlist p {
+    font-size: 18px;
+    display: inline-block;
+    text-align: right;
+    width: 150px;
+}
+.setlist .organization {
+    padding-top: 0px;
+}
+.setlist .organization span {
+    font-size: 14px;
+    color: #999999;
+    line-height: 24px;
+}

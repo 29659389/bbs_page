@@ -1,0 +1,491 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+    <script src="../js/bootstrap.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <link rel="stylesheet"  type="text/css" href="../css/post.css" charset="UTF-8" />
+    <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script type="text/javascript" href="layui/layui.js"></script>
+
+    <style>
+      /*内容*/
+        .z a:hover{
+            color: coral;
+        }
+        .z a{
+            text-decoration: none;
+            color: black;
+        }
+        /*右边*/
+        .right-l a{
+            font-size: 13px;
+            text-decoration: none;
+            color: black;
+
+        }
+        .right-l:hover{
+            background-color: orange;
+        }
+        .right-l a:hover{
+            color: white;
+        }
+         /**************/
+        .right-r a{
+            font-size: 13px;
+            text-decoration: none;
+            color: black;
+
+        }
+        .right-r:hover{
+            background-color: orange;
+        }
+        .right-r a:hover{
+            color: white;/*字体变色*/
+        }
+        /*right-two*/
+        .right-two a{
+            font-size: 13px;
+            text-decoration: none;
+            color: black;
+        }
+        .right-two:hover{
+            background-color: orange
+        }
+        .right-two a:hover{
+            color: white;
+        }
+        /*right-three*/
+        .right-three a{
+            font-size: 13px;
+            text-decoration: none;
+            color: black;
+        }
+        .right-three:hover{
+            background-color: orange
+        }
+        .right-three a:hover{
+            color: white;
+        }
+        #on1{
+            width: 1214px;
+            height: 300px;
+            /*border: 1px solid black;*/
+            margin-top: 20px;
+            margin-left: 150px;
+        }
+        #on2{
+            width: 1214px;
+            height: 300px;
+            /*border: 1px solid black;*/
+            margin-top: 20px;
+            margin-left: 150px;
+        }
+        .pag1{
+            border-bottom: 1px solid #CCCCCC;
+            height: 50px;
+            line-height: 50px;
+            padding-left: 20px;
+            background: #fafafa;
+        }
+        .pag2{
+            width: 160px;
+            height: 249px;
+            background: #fafafa;
+            border-right: 1px solid #CCCCCC;
+            padding: 20px 0 0 15px;
+        }
+        .pag3{
+            width: 800px;
+            height: 180px;
+            /*border: 1px solid black;*/
+            margin-left: 170px;
+            margin-top: -238px;
+            padding: 5px;
+        }
+        #title1{
+            height: 120px;
+            padding: 6px;
+        }
+        #title2{
+            width: 780px;
+        }
+        #frt{
+            margin-left: 160px;
+            margin-top: 25px;
+            line-height: 15px;
+            font-weight: 100;
+            font-size: 12px;
+            color: #b5b5b5;
+        }
+        #frt a{
+            padding-left: 4px;
+            font-weight: 100;
+            font-size: 12px;
+            color: #b5b5b5;
+        }
+        /*导航*/
+        #uuul ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #uuul ul li{
+            margin-right: 15px;
+            width: 45px;
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+        }
+        #uuul ul li a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!--头部导航-->
+<div  style="border:1px;width:100%; z-index: 999; height:50px;background-color: dimgrey;">
+    <div id="uuul" style="border: 1px;width: 80%;height: 50px;margin-left: 150px" >
+        <ul>
+            <ul>
+                <li class="a" style="width: 50px"><a href="Customer.html" title="BBS" style="color: white;font-size: 16px;">论坛</a></li>
+                <li id="Curon1" class="a" style="float: right; width: 120px;display: none"><a href="login.html" title="BBS" style="color: cyan;font-size: 16px"><span>退出登录 </span></a></li>
+                <li id="Curon2" class="a" style="float: right; width: 120px;"><a id="tui" href="login.html" title="BBS" style="color: cyan;font-size: 16px"><span>登录 | </span></a><a href="enroll.html" style="color: white;font-size: 16px"> 注册</a></li>
+                <li class="a" style="float: right;"><a href="" title="BBS" style="color: white;font-size: 16px"><span id="uname"></span></a></li>
+                <li class="comiis_logo" id="uiconn" style="float: right;"><a href="user.html" id="uicon"></a></li>
+            </ul>
+        </ul>
+    </div>
+</div>
+
+<!--内容80%-->
+<div style="width:80%;height: 680px;margin-left: 150px;padding-top: 5px">
+
+        <!--帖子标题-->
+        <div style="border: 1px solid gainsboro;height: 50px;width: 100%;margin-top: 20px">
+        <span style="line-height: 50px;margin-left: 10px; color: #f9a837;font-size: 16px;margin-left: 10px;">标题</span>
+        <span th:each="l:${list}" th:text="${l.pname}" style="line-height: 50px;margin-left: 30px"></span>
+        <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-face-smile" style="font-size: 20px; color: #1E9FFF;margin-right: 20px"></i> </span>
+        <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-face-cry" style="font-size: 20px; color: #8bff80;margin-right: 20px"></i> </span>
+        <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-face-smile-b" style="font-size: 20px; color: #e28045;margin-right: 20px"></i> </span>
+        <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-face-surprised" style="font-size: 20px; color: #ff6285;margin-right: 20px"></i> </span>
+        <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-circle" style="font-size: 20px; color: #ffd676;margin-right: 20px"></i> </span>
+        <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-water" style="font-size: 20px; color: #ff6589;margin-right: 20px"></i> </span>
+        </div>
+
+        <!--帖子展示-->
+        <div class="post">
+            <!--左边个人信息-->
+            <div class="post-l">
+                <!--头像-->
+                <div class="post-l-top">
+                    <div class="post-l-top1" th:each="l:${list}"><img th:src="|img/${l.uicon}|" style="width: 116px;height: 116px"></div>
+                    <div class="post-l-top2"><a th:each="l:${list}" th:text="${l.uname}" href=""></a></div>
+                </div>
+
+                <div class="post-l-c">
+                    <div class="post-l-c1">
+                        <span class="post-l-c1-a">2</span><br>
+                        <span class="post-l-c1-a">主题</span>
+                    </div>
+                    <div class="post-l-c2">
+                        <span class="post-l-c2-a">3</span><br>
+                        <span class="post-l-c2-a">帖子</span>
+                    </div>
+                    <div class="post-l-c3">
+                        <span class="post-l-c3-a">23</span><br>
+                        <span class="post-l-c3-a">积分</span>
+                    </div>
+                </div>
+                <div class="post-l-b">
+                    <a href="">初中生</a>
+                </div>
+                <!--星星月亮图片-->
+                <div class="post-l-bo">
+                    <img src="../img/star_level3.gif">
+                    <img src="../img/star_level2.gif">
+                    <img src="../img/star_level1.gif">
+                </div>
+                <!--进度条-->
+                <div class="post-l-bot">
+                    <div class="post-l-bot1"></div>
+                </div>
+                <div class="post-l-bott">
+                    <div class="post-l-bott1" >
+                        <div class="post-l-bott1-a" >金币</div>
+                        <div class="post-l-bott1-b" >182</div>
+                    </div>
+                    <div class="post-l-bott2" >
+                        <div class="post-l-bott2-a" >好评</div>
+                        <div class="post-l-bott2-b" >2</div>
+                    </div>
+                    <div class="post-l-bott3" >
+                        <div class="post-l-bott3-a" >贡献</div>
+                        <div class="post-l-bott3-b" >0</div>
+                    </div>
+                </div>
+                <div class="post-l-bottom">
+                    <div class="post-l-bottom1"><a href="">收听TA</a></div>
+                    <div class="post-l-bottom2"><a href="">发消息</a></div>
+                </div>
+            </div>
+            <!--帖子右边-->
+            <div class="post-r">
+                <div class="post-r-top">
+                    <!--时间    查询-->
+                    <div class="post-r-top1">
+                        <span th:each="l:${list}" th:text="${l.ptime}"></span>
+                    </div>
+                    <div class="post-r-top2">
+
+                    </div>
+                    <div class="post-r-top3"><a href="">楼主</a></div>
+                    <!--图片-->
+                    <div class="post-r-top4"><img src="../img/fj_btn.png"></div>
+                    <div class="post-r-top5">
+                        <input style="border:1px solid darkgrey;width: 25px;height: 18px" type="text">
+                    </div>
+                    <div class="post-r-top6"><a href="">电梯直达</a></div>
+
+                </div>
+                <!--线条-->
+                <hr style="color: darkgrey;width: 97%;text-align: center;margin-top:-10px">
+                <!--帖子的具体内容展示-->
+                <div class="post-r-center">
+                    <table th:each="l:${list}">
+                        <tbody th:text="${l.pcontent}">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+        <!--------------------------------回帖1------------------->
+
+        <table style="width: 80%;margin: 0 auto">
+            <tr th:each="list:${list1}">
+                <td>
+                    <div class="reply">
+                        <!--回帖左边-->
+                        <div class="reply-l">
+                            <!--头像-->
+                            <div class="reply-l-top">
+                                <div class="reply-l-top1"><img th:src="|img/${list.uicon}|" style="width: 116px;height: 116px"></div>
+                                <div class="reply-l-top2"><a th:text="${list.uname}" href=""></a></div>
+                            </div>
+
+                            <div class="reply-l-c">
+                                <div class="reply-l-c1">
+                                    <span class="reply-l-c1-a">0</span><br>
+                                    <span class="reply-l-c1-a">主题</span>
+                                </div>
+                                <div class="reply-l-c2">
+                                    <span class="reply-l-c2-a">39</span><br>
+                                    <span class="reply-l-c2-a">帖子</span>
+                                </div>
+                                <div class="reply-l-c3">
+                                    <span class="reply-l-c3-a">143</span><br>
+                                    <span class="reply-l-c3-a">积分</span>
+                                </div>
+                            </div>
+                            <div class="reply-l-b">
+                                <a href="">小学生</a>
+                            </div>
+                            <!--星星月亮图片-->
+                            <div class="reply-l-bo">
+                                <img src="../img/star_level3.gif">
+                                <img src="../img/star_level2.gif">
+                                <img src="../img/star_level1.gif">
+                            </div>
+                            <!--进度条-->
+                            <div class="reply-l-bot">
+                                <div class="reply-l-bot1"></div>
+                            </div>
+                            <div class="reply-l-bott">
+                                <div class="reply-l-bott1" >
+                                    <div class="reply-l-bott1-a" >金币</div>
+                                    <div class="reply-l-bott1-b" >0</div>
+                                </div>
+                                <div class="reply-l-bott2" >
+                                    <div class="reply-l-bott2-a" >好评</div>
+                                    <div class="reply-l-bott2-b" >39</div>
+                                </div>
+                                <div class="reply-l-bott3" >
+                                    <div class="reply-l-bott3-a" >贡献</div>
+                                    <div class="reply-l-bott3-b" >20</div>
+                                </div>
+                            </div>
+                            <div class="reply-l-bottom">
+                                <div class="reply-l-bottom1"><a href="">收听TA</a></div>
+                                <div class="reply-l-bottom2"><a href="">发消息</a></div>
+                            </div>
+                        </div>
+
+                        <!--右边回帖内容-->
+                        <div class="reply-r">
+                            <div class="reply-r-top">
+                                <div class="reply-r-top1" th:text="${list.rtime}">
+                                </div>
+                                <div class="reply-r-top2" style="width: 800px;line-height: 40px;">
+                                    <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-face-smile" style="font-size: 20px; color: #1E9FFF;margin-right: 20px"></i> </span>
+                                    <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-face-cry" style="font-size: 20px; color: #8bff80;margin-right: 20px"></i> </span>
+                                    <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-face-smile-b" style="font-size: 20px; color: #e28045;margin-right: 20px"></i> </span>
+                                    <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-face-surprised" style="font-size: 20px; color: #ff6285;margin-right: 20px"></i> </span>
+                                    <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-circle" style="font-size: 20px; color: #ffd676;margin-right: 20px"></i> </span>
+                                    <span style="line-height: 50px;margin-left: 10px; float: right"><i class="layui-icon layui-icon-water" style="font-size: 20px; color: #ff6589;margin-right: 20px"></i> </span>
+                                </div>
+                            </div>
+                            <!--线条-->
+                            <hr style="color: darkgrey;width: 97%;text-align: center;margin-top:-10px">
+                            <!--帖子的具体内容展示-->
+                            <div class="reply-r-center">
+                                <table >
+                                    <tbody th:text="${list.rcontent}">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+</table>
+
+<div class="panel panel-default" id="on1" style="display: none">
+    <div class="pag1">
+        <p>发表回复</p>
+    </div>
+    <div class="pag2">
+        <img src="img/aa2.jpg" class="img-circle" style="width: 130px; height: 130px;">
+    </div>
+    <div class="pag3">
+        <div class="panel panel-default" id="title2">
+            <div class="panel-heading">
+                <h3 class="panel-title">回复内容</h3>
+            </div>
+            <div class="panel-body" id="title1">
+                <textarea id="replyContent" style="margin: 0; width: 766px; height: 108px; border: none;outline: none;"></textarea>
+            </div>
+        </div>
+    </div>
+    <a id="addReply"  style="text-decoration:none">
+        <div style="height: 30px; width: 80px; margin-left: 176px; background: #EB7350; color: white; font-size: 12px; line-height: 30px; text-align: center;">发表回复</div>
+    </a>
+</div>
+
+
+<div class="panel panel-default" id="on2" >
+    <div class="pag1">
+        <p>发表回复</p>
+    </div>
+    <div class="pag2">
+        <img src="img/aa2.jpg" class="img-circle" style="width: 130px; height: 130px;">
+    </div>
+    <div class="pag3">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h3 class="panel-title">回复内容</h3>
+            </div>
+            <div class="panel-body" >
+                <div style="height: 104px;line-height: 100px">您需要登录后才可以发帖&emsp;<a href="/login.html" style="color: #01AAED" class="xi2">登录</a> | <a href="/enroll.html" class="xi2" style="color: #01AAED">立即注册</a></div>
+            </div>
+        </div>
+    </div>
+    <a   style="text-decoration:none">
+        <div style="height: 30px; width: 80px; margin-left: 176px; background: #EB7350; color: white; font-size: 12px; line-height: 30px; text-align: center;">发表回复</div>
+    </a>
+</div>
+
+<!--底部-->
+<div style="height: 100px; background-color: #333333; border: 1px solid black; margin-top: 120px; position: relative;z-index: -20;" >
+    <div id="frt">
+        <p><a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2021024078号-1</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41172502000137" target="_blank"> 豫公网安备 41172502000137号</a>
+            . 版权所有: 在线论坛
+        </p>
+    </div>
+</div>
+
+<button id="test" style="border: none; position:fixed;right:0;top:320px;width: 20px;background: #5db4e2;color: white"><i class="layui-icon">&#xe619;</i><br/><i class="layui-icon">&#xe619;</i><br/><i class="layui-icon">&#xe619;</i></button>
+
+</body>
+</html>
+<script>
+    $(function (){
+            $.ajax({
+                url: "/getSession",
+                type: "post",
+                contentType: "application/json ; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var uname=data.uname;
+                    var uicon=data.uicon;
+                    var realstate=data.realstate;
+                    $("#uname").append(uname);
+                    $("#uicon").append("<img src=\"img/"+uicon+"\" style=\"width: 30px; height: 30px;\" class=\"img-circle\">");
+                    //alert(data)
+                    if (data!=null){
+                        $("#on1").css("display","");
+                        $("#on2").css("display","none");
+                        $("#Curon1").css("display","");
+                        $("#Curon2").css("display","none");
+                        if ( realstate==0){
+                            $("#Fapost").css("display","none");
+                            $("#Fapost2").css("display","");
+                            $("#Curon1").css("display","none");
+                            $("#Curon2").css("display","");
+                        }
+                    }else {
+                        alert("未登录")
+                    }
+                }
+            })
+
+    })
+
+    test.onclick = function(){
+        scrollTo(0,0);
+    };
+
+    //通过地址栏的url来获取pid
+    var pid=oneValues();
+    function oneValues(){
+        var result;
+        var url=decodeURI(window.location.search); //获取url中"?"符后的字串
+        if(url.indexOf("?") != -1) {
+            result = url.substr(url.indexOf("=")+1);
+        }
+        return result;
+    }
+
+    $("#addReply").click(function (){
+        var content=$("#replyContent").val();
+        $.ajax({
+            url: "/addReply",
+            type: "post",
+            data:{
+                "rcontent":content,
+                "pid":pid
+
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data==1){
+                    alert("回复成功")
+                    location.reload();
+                    layer.msg("提交成功", {icon: 1,time:1000});
+                }else{
+                    layer.msg("提交失败", {icon: 5,time:1000});
+                }
+            }
+        })
+
+    })
+
+</script>

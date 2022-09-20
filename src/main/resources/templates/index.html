@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://localhost:1112/">
+<head>
+    <meta charset="UTF-8">
+    <title>MT论坛</title>
+
+    <link rel="stylesheet" href="css/stydemo.css" charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="layui/css/layui.css" />
+    <script type="text/javascript" src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body>
+<!--头部导航-->
+<div  style="border:1px;width:100%; z-index: 999; height:50px;background-color: dimgrey;">
+    <div id="uuul" style="border: 1px;width: 80%;height: 50px;margin-left: 150px" >
+        <ul>
+            <ul>
+                <li class="a" style="width: 50px"><a href="Customer.html" title="BBS" style="color: white;font-size: 16px;">论坛</a></li>
+                <li id="Curon1" class="a" style="float: right; width: 120px;display: none"><a href="login.html" title="BBS" style="color: cyan;font-size: 16px"><span>退出登录 </span></a></li>
+                <li id="Curon2" class="a" style="float: right; width: 120px;"><a id="tui" href="login.html" title="BBS" style="color: cyan;font-size: 16px"><span>登录 | </span></a><a href="enroll.html" style="color: white;font-size: 16px"> 注册</a></li>
+                <li class="a" style="float: right;"><a href="" title="BBS" style="color: white;font-size: 16px"><span th:text="${session.userInfo?.uname}"></span></a></li>
+                <li class="comiis_logo" id="uiconn" style="float: right;"><a href="user.html"><img th:src="|img/${session.userInfo?.uicon}" style="width: 30px; height: 30px;" class="img-circle"></a></li>
+            </ul>
+        </ul>
+    </div>
+</div>
+
+<div id="one1" style="width: 1060px;height: 1100px;margin-top: 10px;">
+
+</div>
+<div id="midaben_con" style="border: 1px solid #F3F3F3; width: 290px;height: 250px;margin-right: 160px;float: right;margin-top: -1099px;">
+    <div id="midaben_sign">
+        <a class="btn btn-info btn-lg" style="width: 270px;height: 75px;margin-left: 10px;margin-top: 10px;">
+            <i class="layui-icon" style="float: left;margin-left: 60px;">&#xe637;  统计</i>
+        </a>
+        <div class="midaben_demo">
+            <div style="border-right: 1px solid #D3D4D3;">
+                <span class="num" id="Num4"> </span>
+                <p>本月发帖数</p>
+            </div>
+            <div style="border-top:1px solid #D3D4D3 ;">
+                <span class="num" id="Num3"> </span>
+                <p>启用板块数</p>
+            </div>
+            <div style="margin-left: 123px;margin-top: -69px;border-left:1px solid #D3D4D3 ;">
+                <span class="num" id="Num2"> </span>
+                <p>论坛总贴数</p>
+            </div>
+            <div style="margin-left: 124px;margin-top: -140px;border-bottom:1px solid #D3D4D3 ;">
+                <span class="num" id="Num1"> </span>
+                <p>论坛会员数</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="midaben_pass">
+
+        <div class="layui-tab">
+            <ul class="layui-tab-title">
+                <li class="layui-this" style="width: 144px;">热帖排行</li>
+                <li style="width: 144px;">精华内容</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="comiis_wz_vlist kmltjx cl">
+                        <ul id="ul1" style="padding-top: 10px;">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="layui-tab-item">
+                    <div class="comiis_wz_vlist kmltjx cl">
+                        <ul id="ul2" style="padding-top: 10px">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="midaben_pass">
+
+        <div class="layui-tab">
+            <ul class="layui-tab-title">
+                <li class="layui-this" style="width: 144px;">最新发表</li>
+                <li style="width: 144px;">最新回复</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="comiis_wz_vlist kmltjx cl">
+                        <ul id="ul3" style="padding-top: 10px">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="layui-tab-item">
+                    <div class="comiis_wz_vlist kmltjx cl">
+                        <ul id="ul4" style="padding-top: 10px">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div style="height: 100px; background-color: #333333; border: 1px solid black; margin-top: 120px; position: relative;z-index: -20;" >
+    <div id="frt">
+        <p><a href="http://beian.miit.gov.cn/" target="_blank">豫ICP备2021024078号-1</a>
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41172502000137" target="_blank"> 豫公网安备 41172502000137号</a>
+            . 版权所有: 在线论坛
+        </p>
+    </div>
+</div>
+<button id="test" style="border: none; position:fixed;right:0;top:320px;width: 20px;background: #5db4e2;color: white"><i class="layui-icon">&#xe619;</i><br/><i class="layui-icon">&#xe619;</i><br/><i class="layui-icon">&#xe619;</i></button>
+</body>
+</html>
+
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script>
+    $(function () {
+        findAll();
+        postAll();
+        NumAlll();
+        getSession();
+    });
+
+    function getSession(){
+        $.ajax({
+            url: "/getSession",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                //alert(data)
+                if (data!=null){
+                    $("#Curon1").css("display","");
+                    $("#Curon2").css("display","none")
+                }
+            }
+        })
+    }
+
+    test.onclick = function(){
+        scrollTo(0,0);
+    };
+
+
+    $("#tui").onclick(function () {
+        log();
+    });
+
+    function log() {
+        //清空缓存
+        window.localStorage.clear();
+        window.location.href="/login.html";
+    }
+
+    function  findAll() {
+
+        $.ajax({
+            url: "/findAll",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var arr = data.list;
+                for (var i=0; i < data.list.length; i++) {
+                    var mid = arr[i].mid;
+                    var mname = arr[i].mname;
+                    var micon = arr[i].micon;
+                    var mstate = arr[i].mstate;
+                    $("#one1").append("<div class=\"layui-collapse\" style='margin-top: 20px'>\n" +
+                        "        <div class=\"layui-colla-item\">\n" +
+                        "            <h2 class=\"layui-colla-title\" id=\"title"+i+"\">"+mname+"专区</h2>\n" +
+                        "\n" +
+                        "            <div class=\"layui-colla-content layui-show\">\n" +
+                        "                <div class=\"panel-body\" id=\"conten"+i+"\">\n" +
+                        "\n" +
+                        "                </div>\n" +
+                        "            </div>\n" +
+                        "        </div>\n" +
+                        "    </div>");
+                    //alert(i)
+                    sonCustomer(i,mid)
+                }
+            }
+        })
+
+    }
+
+
+    function  sonCustomer(i,mid) {
+        //alert(i,mid)
+        $.ajax({
+            url: "/SonAll",
+            type: "post",
+            dataType: "json",
+            data: {"mid":mid},
+            success: function (data) {
+                var arr=data.list;
+                var div;
+                for (var a=0;a<=data.list.length;a++) {
+                    var smid = arr[a].smid;
+                    var smname = arr[a].smname;
+                    var smicon = arr[a].smicon;
+                    var mstate = arr[a].mstate;
+                    if (mstate==0){
+                        mstate="已启用"
+                    }else{
+                        mstate="禁用中"
+                    }
+
+                    div = "<div style=\"height: 80px;width: 260px;float: left; margin-left: 10px;margin-top: 10px\">\n" +
+                        "    \t\t<div class=\"fl_icn_g\" style=\"width: 65px;\">\n" +
+                        "        \t\t<a href=\"plate.html?smid="+smid+"\"><img  id='icon" + smid + "' src=\"img/"+smicon + "\" class=\"img-circle\" align=\"left\" style=\"width: 60px;height: 60px;\" alt=\"版本发布\"></a>\n" +
+                        "        \t  </div>        \t\n" +
+                        "              <dl style=\"margin-left: 85px; margin-top: 22px;\">\n" +
+                        "                <dt><a id='sname" + smid + "' href=\"plate.html?smid="+smid+"\">" + smname + "</a><em class=\"xw0 xi1\" title=\"今日\"> (7)</em></dt>\n" +
+                        "                <dd class=\"kmlineheight\"><em id='pname"+smid+"\'>板块状态: "+mstate+"</em></dd><dd style=\"width:190px;overflow:hidden;text-overflow:ellipsis;\">\n" +
+                        "                </dd>\n" +
+                        "              </dl>\n" +
+                        "    \t</div>";
+                    $("#conten"+i+"").append(div);
+                }
+            }
+        })
+    }
+
+    function postAll() {
+        $.ajax({
+            url: "/postAlls",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var arr=data.list;
+                for (var i=0;i<data.list.length;i++){
+                    var pid=arr[i].pid;
+                    var pname=arr[i].pname;
+                    var pcontent=arr[i].pcontent;
+                    var ptime=arr[i].ptime;
+                    if (i<3){
+                        $("#ul1").append(" <li>\n" +
+                            "<span class=\"hot\">"+(i+1)+".</span>\n" +
+                            "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+pname+"\" target=\"_blank\">"+pname+"</a\n" +
+                            "</li>")
+                    }else {
+                        $("#ul1").append(" <li>\n" +
+                            "<span>"+(i+1)+".</span>\n" +
+                            "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+pname+"\" target=\"_blank\">"+pname+"</a\n" +
+                            "</li>")
+                    }
+
+                }
+            }
+        });
+
+        $.ajax({
+            url: "/replyAlls",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var arr=data.list;
+                for (var i=0;i<data.list.length;i++){
+                    var rid=arr[i].rid;
+                    var pname=arr[i].pname;
+                    var rcontent=arr[i].rcontent;
+                    var pcontent=arr[i].pcontent;
+                    var pid=arr[i].pid;
+                    if (i<3){
+                        $("#ul2").append(" <li>\n" +
+                            "<span class='hot2'>"+(i+1)+".</span>\n" +
+                            "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+pcontent+"\" target=\"_blank\">"+pcontent+"</a\n" +
+                            "</li>")
+                    }else {
+                        $("#ul2").append(" <li>\n" +
+                            "<span>"+(i+1)+".</span>\n" +
+                            "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+pcontent+"\" target=\"_blank\">"+pcontent+"</a\n" +
+                            "</li>")
+                    }
+                }
+            }
+        });
+
+        $.ajax({
+            url: "/replyAll",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var arr=data.list;
+                for (var i=0;i<data.list.length;i++){
+                    var rid=arr[i].rid;
+                    var pname=arr[i].pname;
+                    var rcontent=arr[i].rcontent;
+                    var pid=arr[i].pid;
+                    if (i<3){
+                        $("#ul4").append(" <li>\n" +
+                            "<span class='hot2'>"+(i+1)+".</span>\n" +
+                            "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+rcontent+"\" target=\"_blank\">"+pname+"</a\n" +
+                            "</li>")
+                    }else {
+                        $("#ul4").append(" <li>\n" +
+                            "<span>"+(i+1)+".</span>\n" +
+                            "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+rcontent+"\" target=\"_blank\">"+pname+"</a\n" +
+                            "</li>")
+                    }
+                }
+            }
+        });
+
+        $.ajax({
+            url: "/OstAll",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var arr=data.list;
+                for (var i=0;i<data.list.length;i++){
+                    var pid=arr[i].pid;
+                    var pname=arr[i].pname;
+                    var pcontent=arr[i].pcontent;
+                    var ptime=arr[i].ptime;
+                    if (i<3){
+                        $("#ul3").append(" <li>\n" +
+                            "<span class=\"hot\">"+(i+1)+".</span>\n" +
+                            "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+pname+"\" target=\"_blank\">"+pname+"</a\n" +
+                            "</li>")
+                    }else {
+                        $("#ul3").append(" <li>\n" +
+                            "<span>"+(i+1)+".</span>\n" +
+                            "<a href=\"http://localhost:1112/findPost?pid="+pid+"\" onclick=\"atarget(this)\" onmouseleave=\"leave(this)\" onmouseover=\"over(this)\" id='pid"+pid+"'  style='text-decoration: none' title=\""+pname+"\" target=\"_blank\">"+pname+"</a\n" +
+                            "</li>")
+                    }
+                }
+            }
+        })
+    }
+
+    function NumAlll() {
+        $.ajax({
+            url: "/NumAll",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var arr=data.list;
+                var pid=arr[0].pid;
+                $("#Num2").append(pid);
+            }
+        });
+        $.ajax({
+            url: "/VipAll",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var arr=data.list;
+                var gid=arr[0].gid;
+                $("#Num1").append(gid);
+            }
+        });
+        $.ajax({
+            url: "/SAll",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var arr=data.list;
+                var gid=arr[0].smid;
+                $("#Num3").append(gid);
+            }
+        });
+        $.ajax({
+            url: "/YAll",
+            type: "post",
+            contentType: "application/json ; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                var arr=data.list;
+                var ptime=arr[0].ptime;
+                $("#Num4").append(ptime);
+            }
+        });
+    }
+
+
+</script>
+
+<script>
+
+    function over(x) {
+        x.style.color = "darkorange";
+    }
+
+    function leave(x) {
+        x.style.color = "black";
+    }
+</script>
